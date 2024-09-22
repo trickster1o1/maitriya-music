@@ -1,7 +1,9 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
+
 export default function Menu() {
     return (
         <div className="header-cont">
@@ -17,7 +19,39 @@ export default function Menu() {
                 <ul>
                     <li><Link to={'/'}>Home</Link></li>
                     <li><Link to={'/about'}>About</Link></li>
-                    <li><Link to={'/category'}>Category</Link></li>
+                    <li className="drop-cont"><a href="javascript:void(0)">Category<span><IoMdArrowDropdown/></span></a>
+                        <div className="nav-drop">
+                            <ul>
+                                <li className="li-head">Guitar</li>
+                                <li><Link to={'/'}>Gibson</Link></li>
+                                <li><Link to={'/'}>Fender</Link></li>
+                                <li><Link to={'/'}>Mantra</Link></li>
+                                <li><Link to={'/'}>Dream Catcher</Link></li>
+                            </ul>
+                            
+                            <ul>
+                                <li className="li-head">Ukulele</li>
+                                <li><Link to={'/'}>Mantra</Link></li>
+                                <li><Link to={'/'}>Dream Catcher</Link></li>
+                            </ul>
+                            
+                            <ul>
+                                <li className="li-head">Flute</li>
+                                <li><Link to={'/'}>Gibson</Link></li>
+                                <li><Link to={'/'}>Fender</Link></li>
+                                <li><Link to={'/'}>Mantra</Link></li>
+                                <li><Link to={'/'}>Dream Catcher</Link></li>
+                            </ul>
+                            
+                            <ul>
+                                <li className="li-head">Cajón</li>
+                                <li><Link to={'/'}>Gibson</Link></li>
+                                <li><Link to={'/'}>Fender</Link></li>
+                                <li><Link to={'/'}>Mantra</Link></li>
+                                <li><Link to={'/'}>Dream Catcher</Link></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li><Link to={'/contact'}>Contact</Link></li>
                     {/* <li>Home</li>
                     <li>Home</li> */}
