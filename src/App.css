@@ -1,8 +1,17 @@
 @import url('var.css');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: "Crete Round", serif;
+}body {
+  background-color: #fafafa;
+} .custom-header {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 1em;
+  font-weight: 500;
 }a {
   text-decoration: none;
   color: black;
@@ -12,8 +21,8 @@
 }.main-logo > span{
   color: var(--priCol);
 }.custom-cont {
-  padding-left: 10em;
-  padding-right: 10em;
+  padding-left: 18em;
+  padding-right: 18em;
 } .header-cont {
   display: flex;
   flex-direction: column;
@@ -61,6 +70,8 @@
   position: relative;
 } .main-nav a:hover::after {
   width: 100%;
+} .main-nav a.active::after {
+  width: 100%;
 } .main-nav > ul > li > a span {
   display: flex;
   color: var(--priCol);
@@ -73,7 +84,7 @@
   gap: 6em;
   opacity: 0;
   top: 4.1em;
-  background-color: white;
+  background-color: #fafafa;
   box-shadow: 5px 10px 25px rgba(0,0,0,.2);
   padding: 20px;
   transition: all .2s ease-in-out;
@@ -102,10 +113,9 @@
 .banner-cont {
   width: 100%;
   height: 25em;
-  background-image: url('banner.webp');
+  background-image: url('b.webp');
   background-repeat: no-repeat;
-  background-position-x: center;
-  background-position-y: -46em;
+  background-position: center;
   background-size: cover;
   overflow: hidden;
 }
@@ -114,3 +124,78 @@
   height: 100%;
   object-fit: cover;
 } */
+
+input {
+  padding: 15px;
+  margin-top: 1em;
+  width: 35em;
+} button {
+  margin-top: 1em;
+  padding: 1em;
+  width: 35em;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+
+/* ==== Category Section ==== */
+.category-cont > div {
+  display: grid;
+  padding-top: 2em;
+  gap: 2em;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* flex-wrap: wrap; */
+}.category-cont > div > div {
+  position: relative;
+  border-radius: 15px;
+  height: 20em;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+}.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-color: rgba(0,0,0,.35);
+  border-radius: 15px;
+} .category-cont > div > div:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background: url('https://scontent.fktm1-1.fna.fbcdn.net/v/t39.30808-6/294927818_451070627031717_207807182503507156_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=SjORn_k9Q_sQ7kNvgEEjlRi&_nc_ht=scontent.fktm1-1.fna&_nc_gid=ALgQlpXIaJxEN-sub6usPtn&oh=00_AYDBV3ZF_UyYjg00mBLbUNZ9DDZAIllefRy7_oPUrI9yCw&oe=66FDE069');  
+} .category-cont > div > div:nth-child(2) {
+  background: url('https://www.kcrw.com/news/shows/greater-la/music-anna-may-wong-lapl/ukulele-festival/@@images/rectangular_image/page-header?v=1695941571.33');
+} .category-cont > div > div:nth-child(3) {
+  background: url('https://sage-prod.nyc3.cdn.digitaloceanspaces.com/media/images/Piano-Keyboard.2e16d0ba.fill-40000x30000.jpg');
+} .category-cont > div > div:nth-child(4) {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  background: url('https://blog.sweelee.com/uploads/2021/06/your-guide-to-buying-a-cajon-banner@1200x630-1024x538.jpg');
+} .category-cont > div > div > h3.custom-header {
+  width: fit-content;
+  margin-top: 6em;
+  margin-left: 4em;
+  font-size: 22px;
+  color: white;
+  position: relative;
+  z-index: 15;
+}
+
+/* ==== about us ==== */
+.about-cont {
+  background-color: #f6f6f7;
+
+} .about-cont .custom-header {
+  padding: 1.5em 0 .5em 0;
+  width: fit-content;
+  font-size: 48px;
+} .about-desc > p {
+  width: 45%;
+  word-wrap: break-word;
+  font-weight: 200;
+  color: rgba(0,0,0,.5);
+}

@@ -17,7 +17,7 @@ export default function Menu() {
             </section>
             <nav className="main-nav custom-cont">
                 <ul>
-                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/'} className="active">Home</Link></li>
                     <li><Link to={'/about'}>About</Link></li>
                     <li className="drop-cont"><a href="javascript:void(0)">Category<span><IoMdArrowDropdown/></span></a>
                         <div className="nav-drop">
