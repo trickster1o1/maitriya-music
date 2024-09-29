@@ -5,9 +5,19 @@
   padding: 0;
   margin: 0;
   font-family: "Crete Round", serif;
+}p {
+  line-height: 1.7em;
+  font-weight: 500;
+  color: rgba(0,0,0,.5);
 }body {
   background-color: #fafafa;
-} .custom-header {
+}
+.i-fit{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+  .custom-header {
   text-align: center;
   font-size: 26px;
   margin-top: 1em;
@@ -119,26 +129,6 @@
   background-size: cover;
   overflow: hidden;
 }
- /* .banner-cont img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-input {
-  padding: 15px;
-  margin-top: 1em;
-  width: 35em;
-} button {
-  margin-top: 1em;
-  padding: 1em;
-  width: 35em;
-  text-align: center;
-  background-color: red;
-  color: white;
-  border: none;
-}
-
 
 /* ==== Category Section ==== */
 .category-cont > div {
@@ -188,6 +178,10 @@ input {
 /* ==== about us ==== */
 .about-cont {
   background-color: #f6f6f7;
+  margin-top: 4em;
+  /* border: 1px solid black; */
+  height: 35em;
+  margin-bottom: 25em;
 
 } .about-cont .custom-header {
   padding: 1.5em 0 .5em 0;
@@ -197,5 +191,137 @@ input {
   width: 45%;
   word-wrap: break-word;
   font-weight: 200;
-  color: rgba(0,0,0,.5);
+} .about-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4em;
+  margin-top: 5em;
+  padding-left: 12em;
+  padding-right: 12em;
+
+} .about-gallery >div {
+  overflow: hidden;
+  height: 25em;
+  border-radius: 15px;
+} .about-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} .more-img{
+  grid-column-start: 1;
+  grid-column-end: 4;
+  height: fit-content !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} .custom-btn {
+  border-radius: 5px;
+  background-color: var(--priCol);
+  font-weight: 600;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+}
+/* ==== Shop cont ==== */
+.shop-cont > p {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+} .tab-btn-cont {
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+} .tab-btn-cont > button {
+  padding: 10px 40px;
+  background-color: white;
+  border: 1px solid var(--priCol);
+  color: var(--priCol);
+  transition: all .25s ease-in-out;
+} .tab-btn-cont > button.active {
+  background-color: var(--priCol);
+  color: white;
+} .tab-btn-cont > button:hover {
+  cursor: pointer;
+  background-color: var(--priCol);
+  color: white;
+} .prod-cont {
+  padding-top: 2em;
+  padding-left: 12em;
+  padding-right: 12em;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+} .thumb-cont {
+  width: 100%;
+  height: 25em;
+  border-radius: 15px;
+  overflow: hidden;
+} .prod-title {
+  display: flex;
+  flex-direction: column;
+  gap: .25em;
+  margin-top: 1em;
+} .prod-title > span:nth-child(2) {
+  font-weight: bolder;
+} .prod-info {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em;
+} .prod-info > .custom-btn {
+  padding: .6em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==== Footer cont ==== */
+.footer-cont {
+  background-color: #2a2a2a;
+  margin-top: 4em;
+  padding-bottom: 2em;
+} .footer-cont .main-logo {
+  color: white;
+}.footer-cont > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 0;
+  border-bottom: .5px dotted var(--priCol);
+}.footer-cont > div:nth-child(1) a{
+  color: var(--priCol);
+  font-size: 25px;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+}.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+}.footer-bottom ul > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} .footer-bottom ul {
+  width: fit-content;
+  padding-left: 1em;
+}.footer-bottom ul li a{
+  padding: .5em 0;
+}  .footer-links li::marker {
+  color: var(--priCol);
+} .footer-bottom li.li-head {
+  color: white;
+  margin-top: 2em;
+  margin-bottom: 1em;
+} .footer-bottom a {
+  color: rgba(255,255,255,.5);
+} .footer-contact li{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+} .footer-contact li.li-head {
+  margin-left: 0;
+} .cont-icon {
+  color: var(--priCol);
+  margin-right: 1em;
 }

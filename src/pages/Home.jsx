@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Categories from "../component/Categories";
 import AboutUs from "../component/About";
+import Shop from "../component/Shop";
 
 export default function Home() {
     // let [data,setData] = useState({});
@@ -26,6 +27,7 @@ export default function Home() {
         </div>
         <Categories />
         <AboutUs />
+        <Shop />
         {/* <input type="text" placeholder="brand" value={data.brand ? data.brand : ''} onChange={(e)=>setData({...data, brand: e.target.value})} /><br />
         <input type="text" placeholder="category" value={data.category ? data.category : ''} onChange={(e)=>setData({...data, category: e.target.value})} /><br />
         <input type="text" placeholder="Name" value={data.name ? data.name : ''} onChange={(e)=>setData({...data, name: e.target.value})} /><br />
