@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 export default function Menu() {
     return (
+        <>
         <div className="header-cont">
             <section className="header-top custom-cont">
                 <span className="main-logo"><span>Maitriya</span> Music</span>
@@ -15,7 +16,8 @@ export default function Menu() {
                     <span><span><FaLocationDot/></span>Kalanki Chowk, Ktm</span>
                 </div>
             </section>
-            <nav className="main-nav custom-cont">
+        </div>
+        <nav className="main-nav custom-cont">
                 <ul>
                     <li><Link to={'/'} className="active">Home</Link></li>
                     <li><Link to={'/about'}>About</Link></li>
@@ -57,6 +59,6 @@ export default function Menu() {
                     <li>Home</li> */}
                 </ul>
             </nav>
-        </div>
+        </>
     );
 }

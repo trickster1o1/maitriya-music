@@ -21,10 +21,10 @@ export default function Shop() {
       </div>
 
       <div className="prod-cont">
-        <Product title ='Ibanez Electric Guitar' price='25000' img={e} link='' />
-        <Product title ='Hopner guitar' price='8000' img={g} link='' />
-        <Product title ='kasper' price='4500' img={u} link='' />
-        <Product title ='Djembe High Quality Wood' price='10000' img={j} link='' />
+        <Product title ='Ibanez Electric Guitar' price='25000' img={e} link='/' />
+        <Product title ='Hopner guitar' price='8000' img={g} link='/' />
+        <Product title ='kasper' price='4500' img={u} link='/' />
+        <Product title ='Djembe High Quality Wood' price='10000' img={j} link='/' />
       </div>
     </>
   );
