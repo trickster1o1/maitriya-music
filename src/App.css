@@ -127,6 +127,25 @@
 } .prod-p-cont {
   display: flex;
   flex-direction: column;
+} .p-loader * {
+  background-color: rgba(42,42,42,1);
+  animation: pLoader .5s linear 2s infinite alternate;
+} .p-loader > .prod-title {
+  height: 1em;
+  width: 100%;
+  border-radius: 15px;
+} .p-loader .custom-btn {
+  height: 2em;
+} .p-loader >.prod-info {
+  background-color: rgba(0,0,0,0) !important;
+} .p-loader .custom-btn {
+  background-color: rgba(42,42,42,1);
+}
+
+@keyframes pLoader {
+  to {
+    background-color: rgba(42,42,42,.8);
+  }
 }
 
 

@@ -25,11 +25,50 @@ export default function Shop({featured}) {
         featured.slice(0, 4).map(p => 
           <Product title ={p[1]} price={p[7]} img={p[9]} link={'/product/'+p[2]} />
         )
-        : 'Loading...'}
-        {/* <Product title ='Ibanez Electric Guitar' price='25000' img={e} link='/' />
-        <Product title ='Hopner guitar' price='8000' img={g} link='/' />
-        <Product title ='kasper' price='4500' img={u} link='/' />
-        <Product title ='Djembe High Quality Wood' price='10000' img={j} link='/' /> */}
+        :
+        <>
+        <div className="prod-p-cont p-loader">
+          <div className="thumb-cont">
+          </div>
+          <div className="prod-title">
+          </div>
+          <div className="prod-info">
+            <button className="custom-btn"></button>
+            <button className="custom-btn"></button>
+          </div>
+        </div>
+        <div className="prod-p-cont p-loader">
+          <div className="thumb-cont">
+          </div>
+          <div className="prod-title">
+          </div>
+          <div className="prod-info">
+            <button className="custom-btn"></button>
+            <button className="custom-btn"></button>
+          </div>
+        </div>
+        <div className="prod-p-cont p-loader">
+          <div className="thumb-cont">
+          </div>
+          <div className="prod-title">
+          </div>
+          <div className="prod-info">
+            <button className="custom-btn"></button>
+            <button className="custom-btn"></button>
+          </div>
+        </div>
+        <div className="prod-p-cont p-loader">
+          <div className="thumb-cont">
+          </div>
+          <div className="prod-title">
+          </div>
+          <div className="prod-info">
+            <button className="custom-btn"></button>
+            <button className="custom-btn"></button>
+          </div>
+        </div>
+        </> 
+        }
       </div>
     </>
   );
