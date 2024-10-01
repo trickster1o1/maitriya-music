@@ -5,6 +5,7 @@ import NotFound from './pages/Error404';
 import Menu from './component/Menu';
 import Footer from './component/Footer';
 import Detail from './pages/Detail';
+import ShopProd from './pages/Shop';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/product/:slug' element={<Detail />} />
+        <Route path='/shop' element={<ShopProd />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

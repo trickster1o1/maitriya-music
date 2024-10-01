@@ -26,7 +26,6 @@ export default function Home() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getfeatured`)
         .then(res=>res.json())
         .then(res=>{
-            console.log(res);
             setFeatured(res.products);
         }).catch(e=>{
             console.log(e);

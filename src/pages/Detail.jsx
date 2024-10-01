@@ -13,8 +13,6 @@ export default function Detail() {
         .then(async (res)=>{
             setProd(res.product);
             if(res.product.length) {
-                console.log(res.product);
-                console.log('===');
                 await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getrelated&category=${res.product[8].toString().toLowerCase()}&brand=${res.product[3].toString().toLowerCase()}&id=${res.product[0]}`)
                     .then(res=>res.json()).then(res=> {
                         setRelated(res.products);
@@ -25,7 +23,6 @@ export default function Detail() {
         });
     }
     useEffect(()=> {
-        console.log('working');
         getProd();
     }, []); 
     return (
