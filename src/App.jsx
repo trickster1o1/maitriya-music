@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/Error404';
 import Menu from './component/Menu';
 import Footer from './component/Footer';
+import Detail from './pages/Detail';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/product/:slug' element={<Detail />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

@@ -1,10 +1,10 @@
-import e from '../gallery/e.png';
-import g from '../gallery/g.png';
-import u from '../gallery/u.png';
-import j from '../gallery/j.png';
+// import e from '../gallery/e.png';
+// import g from '../gallery/g.png';
+// import u from '../gallery/u.png';
+// import j from '../gallery/j.png';
 import Product from './Product';
 
-export default function Shop() {
+export default function Shop({featured}) {
   return (
     <>
       <div className="shop-cont custom-cont">
@@ -21,10 +21,15 @@ export default function Shop() {
       </div>
 
       <div className="prod-cont">
-        <Product title ='Ibanez Electric Guitar' price='25000' img={e} link='/' />
+        {featured.length ?
+        featured.slice(0, 4).map(p => 
+          <Product title ={p[1]} price={p[7]} img={p[9]} link={'/product/'+p[2]} />
+        )
+        : 'Loading...'}
+        {/* <Product title ='Ibanez Electric Guitar' price='25000' img={e} link='/' />
         <Product title ='Hopner guitar' price='8000' img={g} link='/' />
         <Product title ='kasper' price='4500' img={u} link='/' />
-        <Product title ='Djembe High Quality Wood' price='10000' img={j} link='/' />
+        <Product title ='Djembe High Quality Wood' price='10000' img={j} link='/' /> */}
       </div>
     </>
   );

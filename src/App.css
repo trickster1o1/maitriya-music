@@ -124,6 +124,9 @@
   margin-left: -1em;
 }.nav-drop li::marker {
   color: var(--priCol);
+} .prod-p-cont {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -272,13 +275,15 @@
   flex-direction: column;
   gap: .25em;
   margin-top: 1em;
+  margin-bottom: 1em;
 } .prod-title > span:nth-child(2) {
   font-weight: bolder;
 } .prod-info {
-  margin-top: 1em;
+  margin-top: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1em;
+  justify-self: flex-end;
 } .prod-info > .custom-btn {
   padding: .6em 0;
   display: flex;
