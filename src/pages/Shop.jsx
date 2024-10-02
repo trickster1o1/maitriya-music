@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Banner from "../component/Banner";
 import Product from "../component/Product";
 import ProductLoader from "../component/ProductLoader";
+import Loader from "../component/Loader";
 
 export default function ShopProd() {
     const [products,setProducts] = useState([]);
@@ -9,8 +10,10 @@ export default function ShopProd() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprods`)
         .then(res=>res.json())
         .then(res=>{
-            console.log(res);
             setProducts(res.product);
+            let ld = document.getElementById('l-c');
+            ld.style.opacity = 0;
+            ld.style.zIndex = -1;
         }).catch(e=>{
             console.log(e);
         });
@@ -20,6 +23,7 @@ export default function ShopProd() {
     }, []);
     return (
         <>
+            <Loader />
             <Banner  title={'shop'}  />
             <div className="custom-cont products-cont">
                 { products && products.length ?

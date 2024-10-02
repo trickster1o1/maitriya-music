@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import Banner from "../component/Banner";
 import { useEffect, useState } from "react";
 import Product from "../component/Product";
+import Loader from "../component/Loader";
 
 export default function Detail() {
     const param = useParams();
@@ -18,6 +19,9 @@ export default function Detail() {
                         setRelated(res.products);
                     }).catch(e=>console.log(e));
             }
+            let ld = document.getElementById('l-c');
+            ld.style.opacity = 0;
+            ld.style.zIndex = -1;
         }).catch(e=>{
             console.log(e);
         });
@@ -27,6 +31,7 @@ export default function Detail() {
     }, []); 
     return (
         <>
+            <Loader />
             <Banner title={prod.length ? prod[1] : ''} sub={'shop'} />
             <div className="detail-cont custom-cont">
                 <div>

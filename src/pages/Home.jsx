@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Categories from "../component/Categories";
 import AboutUs from "../component/About";
 import Shop from "../component/Shop";
+import Loader from "../component/Loader";
 // import slugify from 'react-slugify';
 
 export default function Home() {
@@ -27,6 +28,9 @@ export default function Home() {
         .then(res=>res.json())
         .then(res=>{
             setFeatured(res.products);
+            let ld = document.getElementById('l-c');
+            ld.style.opacity = 0;
+            ld.style.zIndex = -1;
         }).catch(e=>{
             console.log(e);
         });
@@ -37,6 +41,7 @@ export default function Home() {
 
     return (
         <>
+        <Loader />
         <div className="banner-cont">
         </div>
         <Categories />
