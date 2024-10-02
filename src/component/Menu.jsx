@@ -9,7 +9,7 @@ export default function Menu() {
         <>
         <div className="header-cont">
             <section className="header-top custom-cont">
-                <span className="main-logo"><span>Maitriya</span> Music</span>
+                <Link to={'/'} className="main-logo"><span>Maitriya</span> Music</Link>
                 <div className="header-contact">
                     <span><span><FaPhoneAlt /></span>741-869-7572</span>
                     <span><span><IoMailSharp /></span>info@maitriyamusic.com</span>
@@ -20,7 +20,7 @@ export default function Menu() {
         <nav className="main-nav custom-cont">
                 <ul>
                     <li><Link to={'/'} className="active">Home</Link></li>
-                    <li><Link to={'/about'}>About</Link></li>
+                    <li><Link to={'/shop'}>Shop</Link></li>
                     <li className="drop-cont"><a href="javascript:void(0)">Category<span><IoMdArrowDropdown/></span></a>
                         <div className="nav-drop">
                             <ul>

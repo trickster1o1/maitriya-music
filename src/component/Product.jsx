@@ -8,7 +8,7 @@ export default function Product({title, price, img, link}) {
         <img src={img} alt={title} className="i-fit" />
       </div>
       <div className="prod-title">
-        <span>{title}</span>
+        <span role="button" onClick={()=>navigate(link)}>{title}</span>
         <span>Rs.{price}</span>
       </div>
       <div className="prod-info">

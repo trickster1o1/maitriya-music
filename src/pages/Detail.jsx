@@ -13,7 +13,7 @@ export default function Detail() {
         .then(async (res)=>{
             setProd(res.product);
             if(res.product.length) {
-                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getrelated&category=${res.product[8].toString().toLowerCase()}&brand=${res.product[3].toString().toLowerCase()}&id=${res.product[0]}`)
+                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getrelated&category=${res.product[8].toString().toLowerCase()}&brand=${res.product[3] === 'No brand' ? '0' : res.product[3].toString().toLowerCase()}&id=${res.product[0]}`)
                     .then(res=>res.json()).then(res=> {
                         setRelated(res.products);
                     }).catch(e=>console.log(e));
@@ -63,6 +63,9 @@ export default function Detail() {
             </div>
             {
                 prod && prod.length && related && related.length ?
+                <>
+                <h1 className="custom-header" 
+                style={{'backgroundColor':'white','marginTop':'0','paddingTop':'2em'}}>Related Products</h1>
                 <div className="prod-cont related-cont">
                     {
                         related.map(p=> 
@@ -70,6 +73,7 @@ export default function Detail() {
                         )
                     }
                 </div>
+                </>
                 : null
             }
         </>

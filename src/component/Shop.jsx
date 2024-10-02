@@ -6,7 +6,7 @@ import Product from './Product';
 
 export default function Shop({featured}) {
   return (
-    <>
+    <div className='main-shop-cont'>
       <div className="shop-cont custom-cont">
         <h1 className="custom-header">Shop Now</h1>
         <p>
@@ -70,6 +70,6 @@ export default function Shop({featured}) {
         </> 
         }
       </div>
-    </>
+    </div>
   );
 }
