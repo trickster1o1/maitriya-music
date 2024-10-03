@@ -15,6 +15,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/product/:slug' element={<Detail />} />
         <Route path='/shop' element={<ShopProd />} />
+        <Route path='/shop/:brand' element={<ShopProd />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
