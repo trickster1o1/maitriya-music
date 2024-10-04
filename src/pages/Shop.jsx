@@ -15,7 +15,7 @@ export default function ShopProd() {
         .then(res=>res.json())
         .then(res=>{
             setProducts(res.product);
-            setFilter(param.brand ? res.product.filter(e=>e[3]===param.brand) : res.product);
+            setFilter(param.brand ? res.product.filter(e=>e[3].toLowerCase()===param.brand.toLowerCase()) : res.product);
             let ld = document.getElementById('l-c');
             ld.style.opacity = 0;
             ld.style.zIndex = -1;
@@ -39,7 +39,7 @@ export default function ShopProd() {
     }
     useEffect(()=> {
         getProducts();
-    }, []);
+    }, [param.brand]);
     return (
         <>
             <Loader />

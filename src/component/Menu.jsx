@@ -25,10 +25,10 @@ export default function Menu() {
                         <div className="nav-drop">
                             <ul>
                                 <li className="li-head">Guitar</li>
-                                <li><Link to={'/'}>Gibson</Link></li>
-                                <li><Link to={'/'}>Fender</Link></li>
-                                <li><Link to={'/'}>Mantra</Link></li>
-                                <li><Link to={'/'}>Dream Catcher</Link></li>
+                                <li><Link to={'/shop/gibson'}>Gibson</Link></li>
+                                <li><Link to={'/shop/fender'}>Fender</Link></li>
+                                <li><Link to={'/shop/mantra'}>Mantra</Link></li>
+                                <li><Link to={'/shop/deram catcher'}>Dream Catcher</Link></li>
                             </ul>
                             
                             <ul>
