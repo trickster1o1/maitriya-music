@@ -1,5 +1,6 @@
 import Home from './pages/Home';
 import './App.css';
+import './Mobile.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/Error404';
 import Menu from './component/Menu';
@@ -16,6 +17,7 @@ function App() {
         <Route path='/product/:slug' element={<Detail />} />
         <Route path='/shop' element={<ShopProd />} />
         <Route path='/shop/:brand' element={<ShopProd />} />
+        <Route path='/shop/:category/:brand' element={<ShopProd />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

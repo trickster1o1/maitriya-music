@@ -3,17 +3,22 @@ import { IoMailSharp } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { MdOutlineCancel } from "react-icons/md";
+import { useState } from "react";
 
 export default function Menu() {
+    const [menu,setMenu] = useState(false);
     return (
         <>
         <div className="header-cont">
             <section className="header-top custom-cont">
                 <Link to={'/'} className="main-logo"><span>Maitriya</span> Music</Link>
                 <div className="header-contact">
-                    <span><span><FaPhoneAlt /></span>741-869-7572</span>
-                    <span><span><IoMailSharp /></span>info@maitriyamusic.com</span>
-                    <span><span><FaLocationDot/></span>Kalanki Chowk, Ktm</span>
+                    <span className="dis-mob"><span><FaPhoneAlt /></span>741-869-7572</span>
+                    <span className="dis-mob"><span><IoMailSharp /></span>info@maitriyamusic.com</span>
+                    <span className="dis-mob"><span><FaLocationDot/></span>Kalanki Chowk, Ktm</span>
+                    <span className="mob-nav-b" onClick={()=>setMenu(!menu)}><RxHamburgerMenu /></span>
                 </div>
             </section>
         </div>
@@ -59,6 +64,14 @@ export default function Menu() {
                     <li>Home</li> */}
                 </ul>
             </nav>
+            <div className="mob-nav" style={menu ? {'opacity':'1','zIndex':'1000'} : {'opacity': '0','zIndex':'-1'}}>
+                <span onClick={()=>setMenu(!menu)}><MdOutlineCancel/></span>
+                <ul>
+                    <li onClick={()=>setMenu(!menu)}><Link to={'/'}> Home</Link></li>
+                    <li onClick={()=>setMenu(!menu)}><Link to={'/shop'}> Shop</Link></li>
+                    <li onClick={()=>setMenu(!menu)}><Link to={'/contact'}>Contact</Link></li>
+                </ul>
+            </div>
         </>
     );
 }

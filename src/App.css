@@ -7,6 +7,8 @@
   font-family: "Crete Round", serif;
 }[role=button]{
   cursor:pointer;
+}.mob-nav-b {
+  display: none !important;
 }p {
   line-height: 1.7em;
   font-weight: 500;
@@ -18,8 +20,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 10em;
+  min-height: 10em;
   background-color: #f9f9fb;
+  padding: 2em;
 } .page-header > div a, .page-header > div span {
   color: rgba(0,0,0,.5);
   font-weight: 500;
@@ -203,7 +206,7 @@
 } .category-cont > div > div:nth-child(1) {
   grid-column-start: 1;
   grid-column-end: 3;
-  background: url('https://scontent.fktm1-1.fna.fbcdn.net/v/t39.30808-6/294927818_451070627031717_207807182503507156_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=SjORn_k9Q_sQ7kNvgEEjlRi&_nc_ht=scontent.fktm1-1.fna&_nc_gid=ALgQlpXIaJxEN-sub6usPtn&oh=00_AYDBV3ZF_UyYjg00mBLbUNZ9DDZAIllefRy7_oPUrI9yCw&oe=66FDE069');  
+  background: url('https://scontent.fktm1-1.fna.fbcdn.net/v/t39.30808-6/294927818_451070627031717_207807182503507156_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=jov47Tq6GacQ7kNvgFgspg4&_nc_ht=scontent.fktm1-1.fna&_nc_gid=ASJ0pUaoP-tPiW_ciRdM0Gn&oh=00_AYC1Y8vx3EQlgULdKkDlkk717G_bTfRd2XuXSRnYrOFEBQ&oe=67086C69');  
 } .category-cont > div > div:nth-child(2) {
   background: url('https://www.kcrw.com/news/shows/greater-la/music-anna-may-wong-lapl/ukulele-festival/@@images/rectangular_image/page-header?v=1695941571.33');
 } .category-cont > div > div:nth-child(3) {

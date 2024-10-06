@@ -1,0 +1,157 @@
+.mob-nav {
+    position: fixed;
+    display: flex;
+    top: 0;bottom: 0;
+    left: 0;right: 0;
+    opacity: 0;
+    background-color: rgba(0,0,0,.4);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+    justify-content: center;
+    align-items: center;
+    transition: all .25s ease-in-out;
+} .mob-nav ul {
+    padding: 0;
+    list-style-type: none;
+} .mob-nav li a{
+    display: block;
+    text-align: center;
+    padding: .5em;
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+} .mob-nav > span {
+    position: fixed;
+    right: 4em;
+    top: 2em;
+    color: white;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 1415px) {
+    .custom-cont {
+        padding-left: 10em;
+        padding-right: 10em;
+    } .prod-cont {
+        grid-template-columns: 1fr 1fr 1fr;
+    } .prod-cont > div:nth-child(4) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1197px) {
+    .custom-cont, .prod-cont, .about-gallery {
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    [role=button]{
+        cursor: default;
+    }.dis-mob {
+        display: none !important;
+    }.header-contact {
+        align-items: center;
+    }.mob-nav-b {
+        display: block !important;
+        margin-bottom: -.5em;
+      } .main-nav {
+        display: none;
+    }.header-cont {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }.about-desc {
+        text-align: center;
+    } .about-desc p {
+        width: 100%;
+    } .about-desc .custom-header {
+        width: 100%;
+    }.products-cont {
+        grid-template-columns: 1fr;
+    }.products-cont > div:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }.products-cont > div:nth-child(2) {
+        display: none;
+    }
+}
+@media only screen and (max-width: 850px) {
+    .category-cont > div {
+        grid-template-columns: 1fr;
+        /* flex-wrap: wrap; */
+      }.category-cont > div > div > .custom-header {
+        width: 100% !important;
+        margin-left: 0 !important;
+      } .category-cont > div > div:nth-child(1) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    } .category-cont > div > div:nth-child(4) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+    } .about-gallery{
+        grid-template-columns: 1fr;
+    }.more-img{
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }.about-cont {
+        height: fit-content;
+        margin-bottom: 0;
+        padding-bottom: 2em;
+    }.main-shop-cont {
+        margin-top: 2em;
+    } .prod-cont {
+        grid-template-columns: 1fr 1fr;
+    }.products-cont > .prod-cont {
+        grid-template-columns: 1fr 1fr;
+      } .prod-cont > div:nth-child(3) {
+        display: none;
+    }.footer-bottom {
+        flex-direction: column;
+        align-items: center;
+    } .footer-bottom ul {
+        min-width: 300px !important;
+        border-bottom: 1px dotted var(--priCol);
+        padding-bottom: 2em;
+    } .b-less{
+        border-bottom: none !important;
+    } .footer-bottom li {
+        text-align: center;
+        list-style-type: none;
+        margin-left: 0;
+        justify-content: center;
+    }.detail-cont {
+      grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .prod-cont {
+        grid-template-columns: 1fr;
+    }.products-cont > .prod-cont {
+        grid-template-columns: 1fr;
+      }.detail-cont {
+        padding: 1em;
+      }.detail-cont .line-break {
+        width: 100%;
+      }.p-price {
+        text-align: center;
+      }
+}
+@media only screen and (max-width: 420px) {
+    .custom-cont, .prod-cont, .about-gallery {
+        padding-left: 2em;
+        padding-right: 2em;
+    }.mob-nav > span {
+        right: 2em;
+    }.mob-nav li a{
+        font-size: 18px;
+    }
+    
+}
+@media only screen and (max-width: 370px) {
+    .tab-btn-cont .custom-btn {      
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+}

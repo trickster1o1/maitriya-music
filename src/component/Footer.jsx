@@ -55,16 +55,16 @@ export default function Footer() {
             <a href="mailto: info@mail.com"><span className="cont-icon"><IoMailSharp/></span> <span>info@mail.com</span></a>
             </li>
             <li>
-            <a href="javascript:void(0)"><span className="cont-icon"><IoTime/></span> <span>Sunday - Friday <br />
+            <a href="javascript:void(0)"><span className="cont-icon"><IoTime/></span> <span>Sunday - Friday <br className="dis-mob" />
             10:00 AM - 08:00 PM</span></a>
             </li>
           </ul>
         </div>
         <div className="footer-contact">
-          <ul>
+          <ul className="b-less">
             <li className="li-head">Address</li>
             <li>
-              <a href="javascript:void(0)"><span className="cont-icon"><FaLocationDot/></span> <span>Kalanki Chowk, <br /> Kathmandu</span></a>
+              <a href="javascript:void(0)"><span className="cont-icon"><FaLocationDot/></span> <span>Kalanki Chowk, <br className="dis-mob" /> Kathmandu</span></a>
             </li>
            
           </ul>
