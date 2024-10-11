@@ -7,20 +7,31 @@ import Menu from './component/Menu';
 import Footer from './component/Footer';
 import Detail from './pages/Detail';
 import ShopProd from './pages/Shop';
+import Login from './pages/admin/Login';
+import Dashboard from './pages/admin/Dashboard';
+import AdminMenu from './component/AdminMenu';
+import ProductList from './pages/admin/ProductList';
 
 function App() {
   return (
     <BrowserRouter>
-      <Menu />
+      {window.location.href.includes('mm3000') ? <AdminMenu /> : <Menu />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/product/:slug' element={<Detail />} />
         <Route path='/shop' element={<ShopProd />} />
         <Route path='/shop/:brand' element={<ShopProd />} />
         <Route path='/shop/:category/:brand' element={<ShopProd />} />
+
+        {/* Admin */}
+        <Route path='/mm3000/login' element={<Login />} />
+        <Route path='/mm3000' element={<Dashboard />} />
+        <Route path='/mm3000/products' element={<ProductList />} />
+
+
         <Route path='*' element={<NotFound />} />
       </Routes>
-      <Footer />
+      {window.location.href.includes('mm3000') ? null : <Footer />}
     </BrowserRouter>
   );
 }
