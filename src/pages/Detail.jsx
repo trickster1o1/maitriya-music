@@ -28,7 +28,7 @@ export default function Detail() {
     }
     useEffect(()=> {
         getProd();
-    }, []); 
+    }, [param]); 
     return (
         <>
             <Loader />

@@ -584,3 +584,65 @@
 } .list-cont td div {
   width: 90%;
 }
+
+/* ==== Custom Modal ==== */
+.modal-cont {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .2s ease-in-out;
+} .modal-cont > div {
+  display: flex;
+  flex-direction: column;
+  height: 15em;
+  width: 25%;
+  background-color: white;
+} .modal-cont > div > div:nth-child(2) {
+  flex-grow: 1;
+} .modal-cont > div > div{
+  padding: 1em;
+} .modal-cont div button {
+  float: right;
+  margin-left: 1em;
+  padding: 5px 20px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+} .modal-head {
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}.modal-foot {
+  border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,.4);
+  backdrop-filter: blur(5px);
+  color: white;
+  font-size: 45px;
+} .loader span {
+  /* transition: all .25s ease-in-out; */
+  animation: loader 2s infinite;
+  height: .99em;
+}
+
+@keyframes loader {
+  to {
+    transform: rotate(360deg);
+  }
+}
