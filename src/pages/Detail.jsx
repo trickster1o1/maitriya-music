@@ -53,7 +53,7 @@ export default function Detail() {
                     {
                         prod.length ? 
                         <>
-                        <p>{prod[6]}</p>
+                        <p dangerouslySetInnerHTML={{ __html: prod[6] }} />
                         <div className="line-break"></div>
                         <div className="p-price">
                             <span>Price:</span><span>Rs.{prod[7]}</span>    <br />

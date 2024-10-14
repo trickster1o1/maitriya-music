@@ -586,7 +586,7 @@
 }
 
 /* ==== Custom Modal ==== */
-.modal-cont {
+.modal-cont, .product-pop {
   position: fixed;
   top: 0;
   left: 0;
@@ -598,17 +598,17 @@
   justify-content: center;
   align-items: center;
   transition: all .2s ease-in-out;
-} .modal-cont > div {
+} .modal-cont > div , .pop-cont{
   display: flex;
   flex-direction: column;
   height: 15em;
   width: 25%;
   background-color: white;
-} .modal-cont > div > div:nth-child(2) {
+} .modal-cont > div > div:nth-child(2) ,.pop-cont > div:nth-child(2) {
   flex-grow: 1;
-} .modal-cont > div > div{
+} .modal-cont > div > div, .pop-cont > div{
   padding: 1em;
-} .modal-cont div button {
+} .modal-cont div button, .pop-cont div button{
   float: right;
   margin-left: 1em;
   padding: 5px 20px;
@@ -616,7 +616,7 @@
   outline: none;
   border-radius: 5px;
   color: white;
-} .modal-head {
+} .modal-head{
   border-bottom: 1px solid rgba(0,0,0,.2);
 }.modal-foot {
   border-top: 1px solid rgba(0,0,0,.2);
@@ -645,4 +645,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.pop-cont{
+  width: 65%;
+  height: fit-content;
+} .pop-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+} .pop-body input {
+  padding: 1em;
+  border: 1px solid rgba(0,0,0,.35);
+  border-radius: 5px;
+  width: 100%;
+  color: rgba(0,0,0,.5);
+  outline: none;
+} .in-cont {
+  display: block;
+  width: 85%;
+  position: relative;
+}.in-cont > span {
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  top: -.65em;
+  left: 1em;
+  color: rgba(0,0,0,.5);
+  background-color: white;
+
 }
