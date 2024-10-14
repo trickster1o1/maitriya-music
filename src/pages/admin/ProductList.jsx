@@ -4,6 +4,7 @@ import { LuLoader } from "react-icons/lu";
 import Modal from "../../component/Modal";
 import { ClassicEditor, Context, Bold, Essentials, Italic, Paragraph, ContextWatchdog } from 'ckeditor5';
 import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
+import slugify from 'react-slugify';
 
 import 'ckeditor5/ckeditor5.css';
 export default function ProductList() {
@@ -53,11 +54,26 @@ export default function ProductList() {
             }).catch(e=>{console.log(e);
                 setLoader(false);
             });
+        } else if (type === 'a') {
+            await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addprod&category=${data.category}&brand=${data.brand}&name=${data.title}&slug=${slugify(data.title)}&desc=${desc}&price=${data.price}&thumb=${data.thumbnail}&featured=${data.featured}`)
+            .then(res=>res.json()).then(res=>{
+                setProducts(res.products);
+                setLoader(false);
+            }).catch(e=>{console.log(e);
+                setLoader(false);
+            });
         }
     }
     return (
         <div className="admin-cont">
-            <h2 className="admin-header">Products <button role="button">Add</button></h2>
+            <h2 className="admin-header">Products <button role="button" 
+            onClick={()=>{
+                setData({
+                    title: '', price: '', brand:'',category:'',featured:'',thumbnail:'',
+                    slug: ''
+                });
+                setDesc('');setPop(true);
+            }}>Add</button></h2>
 
             <div className="list-cont">
                 {products && products.length ?
@@ -107,7 +123,7 @@ export default function ProductList() {
             <div className="product-pop" style={pop ? {'zIndex':'9999','opacity':'1'} : {'zIndex':'-1','opacity':'0'}}>
                 <div className="pop-cont">
                         <div className="modal-head">
-                            {data.title ? data.title : 'Add Product'}
+                            {data.slug ? data.slug : 'Add Product'}
                         </div>
                         <div className="pop-body">
                             <span className="in-cont">
@@ -174,7 +190,7 @@ export default function ProductList() {
                         </div>
                         <div className="modal-foot">
                             <button style={{'backgroundColor':'rgb(255,0,0)'}} role="button" onClick={()=>setPop(false)}>Cancel</button>
-                            <button style={{'backgroundColor':'rgb(100,100,100)'}} role="button" onClick={()=>hanleProd(data.title ? 'u' : 'a')}>{data.title ? 'Update' : 'Add'}</button>
+                            <button style={{'backgroundColor':'rgb(100,100,100)'}} role="button" onClick={()=>hanleProd(data.slug ? 'u' : 'a')}>{data.slug ? 'Update' : 'Add'}</button>
                         </div>
                 </div>
             </div>

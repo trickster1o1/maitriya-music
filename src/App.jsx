@@ -11,6 +11,7 @@ import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import AdminMenu from './component/AdminMenu';
 import ProductList from './pages/admin/ProductList';
+import Gallery from './pages/admin/GalleryList';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/mm3000/login' element={<Login />} />
         <Route path='/mm3000' element={<Dashboard />} />
         <Route path='/mm3000/products' element={<ProductList />} />
+        <Route path='/mm3000/gallery' element={<Gallery />} />
 
 
         <Route path='*' element={<NotFound />} />

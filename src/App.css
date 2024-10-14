@@ -675,5 +675,25 @@
   left: 1em;
   color: rgba(0,0,0,.5);
   background-color: white;
-
+} .g-img {
+  width: 20em;
+  float: left;
+  margin-right: 1em;
+  margin-top: 1em;
+  position: relative;
+} .g-img > img {
+  width: 100%;
+  height: auto;
+} .g-img > .overlay {
+  border-radius: 0;
+  opacity: 0;
+  color: white;
+  transition: all .35s ease-in-out;
+} .g-img:hover > .overlay {
+  opacity: 1;
+} .g-img > .overlay span {
+  float: right;
+  font-size: 20px;
+  margin-top: .5em;
+  margin-right: .5em;
 }
