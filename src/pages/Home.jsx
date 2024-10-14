@@ -7,6 +7,7 @@ import Loader from "../component/Loader";
 
 export default function Home() {
     let [featured,setFeatured] = useState([]);
+
     // let [loader,setLoader] = useState(0);
     // async function testGet() {
     //     setLoader(1);
@@ -24,10 +25,10 @@ export default function Home() {
     // }
 
     async function getFeatured() {
-        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getfeatured`)
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprods`)
         .then(res=>res.json())
         .then(res=>{
-            setFeatured(res.products);
+            setFeatured(res.product.reverse());
             let ld = document.getElementById('l-c');
             ld.style.opacity = 0;
             ld.style.zIndex = -1;

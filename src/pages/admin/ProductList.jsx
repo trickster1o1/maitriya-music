@@ -13,6 +13,7 @@ export default function ProductList() {
     const [loader,setLoader] = useState(false);
     const [pid,setPid] = useState(0);
     const [pop,setPop] = useState(false);
+    const [err,setErr] = useState('');
     const [data,setData] = useState({
         title: '', price: '', brand:'',category:'',featured:'',thumbnail:'',slug:''
     });
@@ -21,7 +22,7 @@ export default function ProductList() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprods`)
         .then(res=>res.json())
         .then(res=>{
-            setProducts(res.product);
+            setProducts(res.product.reverse());
         }).catch(e=>{
             console.log(e);
         });
@@ -35,7 +36,7 @@ export default function ProductList() {
         setLoader(true);
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=delprod&id=${id}`)
         .then(res=>res.json()).then(res=>{
-            setProducts(res.products);
+            setProducts(res.products.reverse());
             setLoader(false);
         }).catch(e=>{
             console.log(e);
@@ -44,25 +45,32 @@ export default function ProductList() {
     }
 
     let hanleProd = async (type) => {
-        setPop(false);
-        setLoader(true)
-        if(type === 'u') {
-            await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=updprod&title=${data.title}&slug=${data.slug}&description=${desc}&featured=${data.featured}&thumbnail=${data.thumbnail}&category=${data.category}&brand=${data.brand}&price=${data.price}`)
-            .then(res=>res.json()).then(res=>{
-                setProducts(res.products);
-                setLoader(false);
-            }).catch(e=>{console.log(e);
-                setLoader(false);
-            });
-        } else if (type === 'a') {
-            await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addprod&category=${data.category}&brand=${data.brand}&name=${data.title}&slug=${slugify(data.title)}&desc=${desc}&price=${data.price}&thumb=${data.thumbnail}&featured=${data.featured}`)
-            .then(res=>res.json()).then(res=>{
-                setProducts(res.products);
-                setLoader(false);
-            }).catch(e=>{console.log(e);
-                setLoader(false);
-            });
+        if(!data.title || !desc || !data.price) {
+            setErr('Please Fill data properly!');
+        } else {
+            
+            setPop(false);
+            setLoader(true);
+            if(type === 'u') {
+                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=updprod&title=${data.title}&slug=${data.slug}&description=${desc}&featured=${data.featured}&thumbnail=${data.thumbnail}&category=${data.category}&brand=${data.brand}&price=${data.price}`)
+                .then(res=>res.json()).then(res=>{
+                    setProducts(res.products.reverse());
+                    setLoader(false);
+                    setErr('');
+                }).catch(e=>{console.log(e);
+                    setLoader(false);
+                });
+            } else if (type === 'a') {
+                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addprod&category=${data.category}&brand=${data.brand}&name=${data.title}&slug=${slugify(data.title)}&desc=${desc}&price=${data.price}&thumb=${data.thumbnail}&featured=${data.featured}`)
+                .then(res=>res.json()).then(res=>{
+                    setProducts(res.products.reverse());
+                    setLoader(false);
+                }).catch(e=>{console.log(e);
+                    setLoader(false);
+                });
+            }
         }
+        
     }
     return (
         <div className="admin-cont">
@@ -72,7 +80,7 @@ export default function ProductList() {
                     title: '', price: '', brand:'',category:'',featured:'',thumbnail:'',
                     slug: ''
                 });
-                setDesc('');setPop(true);
+                setDesc('');setPop(true);setErr('');
             }}>Add</button></h2>
 
             <div className="list-cont">
@@ -106,6 +114,7 @@ export default function ProductList() {
                                                 title: p[1], price: p[7], brand:p[3],category:p[8],featured:p[4],thumbnail:p[9],
                                                 slug: p[2]
                                             });
+                                            setErr('');
                                             setDesc(p[6]);setPop(true);
                                         }}
                                     /><MdDeleteForever title="Delete" 
@@ -186,6 +195,12 @@ export default function ProductList() {
                                     onChange={(e)=>setData({...data, featured: data.featured === 1 ? 0 : 1})}
                                 />
                             </span>
+
+                            {err ? 
+                                <span className="in-cont">
+                                    <span style={{'color':'red'}}>{err}</span>
+                                </span>
+                            :null}
                             
                         </div>
                         <div className="modal-foot">

@@ -8,7 +8,17 @@ export default function Gallery() {
     const [loader,setLoader] = useState(false);
     const [gallery, setGallery] = useState([]);
     const [img,setImg] = useState('');
+    const [show,setShow] = useState(false);
     const [pop,setPop] = useState(false);
+    const [pid, setPid] = useState(0);
+    const delGallery = async () => {
+        setShow(false);
+        setLoader(true);
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=delgallery&id=${pid}`)
+        .then(res=>res.json()).then(res=>{
+            setGallery(res.gallery);setLoader(false);
+        }).catch(e=>{console.log(e);setLoader(false);});
+    }
     let getGallery = async () => {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getgallery`)
         .then(res=>res.json()).then(res=>{
@@ -42,7 +52,7 @@ export default function Gallery() {
                             <div className="g-img" key={key}>
                                 <div className="overlay">
                                     <span role="button">
-                                        <MdDeleteForever title="Delete" />
+                                        <MdDeleteForever title="Delete" onClick={()=>{setShow(true);setPid(g[0])}} />
                                     </span>
                                 </div>
                                 <img  src={g[1]} alt={"img-"+key} />
@@ -51,7 +61,7 @@ export default function Gallery() {
                     : 'loading...'
                 }
             </div>
-            {/* <Modal text={'Are you sure you want to delete this item ?'} id={pid} header={'Confirm'} show={show} setShow={setShow} dFun={delProd} /> */}
+            <Modal text={'Are you sure you want to delete this image ?'} id={pid} header={'Confirm'} show={show} setShow={setShow} dFun={delGallery} />
             <div className="loader" style={loader ? {'display':'flex'} : {'display':'none'}}>
                 <span><LuLoader /></span>
             </div>

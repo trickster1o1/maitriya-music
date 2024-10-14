@@ -1,6 +1,3 @@
-import imgA from '../gallery/a.jpg';
-import imgB from '../gallery/b.jpg';
-import imgC from '../gallery/c.jpg';
 export default function AboutUs() {
   return (
     <div className="about-cont">
@@ -15,9 +12,9 @@ export default function AboutUs() {
         </p>
       </div>
       <div className="about-gallery">
-          <div><img src={imgA} alt="Img A" /></div>
-          <div><img src={imgB} alt="Img A" /></div>
-          <div><img src={imgC} alt="Img A" /></div>
+          <div><img src='/gall/a.jpg' alt="Img A" /></div>
+          <div><img src='/gall/b.jpg' alt="Img A" /></div>
+          <div><img src='/gall/c.jpg' alt="Img A" /></div>
           <div className='more-img'><button className='custom-btn'>View More</button></div>
       </div>     
     </div>
