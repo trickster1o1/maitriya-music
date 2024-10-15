@@ -52,7 +52,7 @@ export default function Footer() {
               <a href="tel: 9810223311"><span className="cont-icon"><FaPhoneAlt/></span> <span style={{'color':'#ff9300','fontSize':'25px'}}>9860240733</span></a>
             </li>
             <li>
-            <a href="mailto: info@mail.com"><span className="cont-icon"><IoMailSharp/></span> <span>info@mail.com</span></a>
+            <a href="mailto: info@mail.com"><span className="cont-icon"><IoMailSharp/></span> <span>info@maitriyamusic.com.np</span></a>
             </li>
             <li>
             <a href="javascript:void(0)"><span className="cont-icon"><IoTime/></span> <span>Sunday - Friday <br className="dis-mob" />

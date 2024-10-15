@@ -6,11 +6,6 @@ export default function AboutUs({ gallery }) {
       <div className="about-desc custom-cont">
         <h1 className="custom-header">About Us</h1>
         <p>
-          {/* Aenean tempor auctor dui sed eleifend. Praesent maximus justo quis
-          tellus placerat, eget molestie nisl dignissim. Ut sem eros, elementum
-          sit amet felis id, efficitur semper odio. Pellentesque eu eros
-          efficitur, consequat arcu quis, varius ex. Nam interdum ligula quis
-          risus blandit volutpat. */}
           Welcome to Maitreya Music, your one-stop shop for all things music!
           Whether you're a beginner looking to find your first instrument or a
           seasoned musician searching for the perfect gear, we've got you
