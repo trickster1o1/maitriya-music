@@ -4,12 +4,16 @@ import Product from "../component/Product";
 import ProductLoader from "../component/ProductLoader";
 import Loader from "../component/Loader";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeUrl } from "../feature/navPing";
 
 export default function ShopProd() {
     const param = useParams();
     const [products,setProducts] = useState([]);
     const [filter,setFilter] = useState(null);
     const [narrow,setNarrow] = useState('');
+    const setUrl = useDispatch();
+
     async function getProducts() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprods`)
         .then(res=>res.json())
@@ -38,6 +42,7 @@ export default function ShopProd() {
         }
     }
     useEffect(()=> {
+        setUrl(changeUrl('shop'));
         getProducts();
     }, [param.brand]);
     return (

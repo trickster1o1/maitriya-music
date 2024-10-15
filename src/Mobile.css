@@ -123,7 +123,9 @@
         justify-content: center;
     }.detail-cont {
       grid-template-columns: 1fr;
-    }
+    } .gal-cont {
+        grid-template-columns: 1fr 1fr;
+      }
 }
 @media only screen and (max-width: 600px) {
     .prod-cont {
@@ -146,7 +148,9 @@
         right: 2em;
     }.mob-nav li a{
         font-size: 18px;
-    }
+    }.gal-cont {
+        grid-template-columns: 1fr;
+      }
     
 }
 @media only screen and (max-width: 370px) {

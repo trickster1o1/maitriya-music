@@ -14,25 +14,40 @@ export default function Gallery() {
     const delGallery = async () => {
         setShow(false);
         setLoader(true);
-        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=delgallery&id=${pid}`)
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=delgallery&id=${pid}&token=${sessionStorage.getItem('token')}`)
         .then(res=>res.json()).then(res=>{
-            setGallery(res.gallery);setLoader(false);
+            if(res.status === 'error') {
+                sessionStorage.clear();
+                window.location.reload();
+            } else {
+                setGallery(res.gallery);setLoader(false);
+            }
         }).catch(e=>{console.log(e);setLoader(false);});
     }
     let getGallery = async () => {
-        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getgallery`)
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getgallery&token=${sessionStorage.getItem('token')}`)
         .then(res=>res.json()).then(res=>{
-            setGallery(res.products);
+            if(res.status === 'error') {
+                sessionStorage.clear();
+                window.location.reload();
+            } else {
+                setGallery(res.products);
+            }
         }).catch(e=>console.log(e));
     }
 
     let addGallery = async () => {
         setLoader(true);
         setPop(false);
-        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addgallery&img=${img}`)
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addgallery&img=${img}&token=${sessionStorage.getItem('token')}`)
         .then(res=>res.json()).then(res=>{
-            setGallery(res.gallery);
-            setLoader(false);
+            if(res.status === 'error') {
+                sessionStorage.clear();
+                window.location.reload();
+            } else {
+                setGallery(res.gallery);
+                setLoader(false);
+            }
             setImg('');
         }).catch(e=>{console.log(e);setLoader(false);setImg('');});
     }

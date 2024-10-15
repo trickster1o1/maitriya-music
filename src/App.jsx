@@ -12,6 +12,8 @@ import Dashboard from './pages/admin/Dashboard';
 import AdminMenu from './component/AdminMenu';
 import ProductList from './pages/admin/ProductList';
 import Gallery from './pages/admin/GalleryList';
+import Galleries from './pages/Galleries';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -23,12 +25,14 @@ function App() {
         <Route path='/shop' element={<ShopProd />} />
         <Route path='/shop/:brand' element={<ShopProd />} />
         <Route path='/shop/:category/:brand' element={<ShopProd />} />
+        <Route path='/gallery' element={<Galleries />} />
+        <Route path='/contact' element={<Contact />} />
 
         {/* Admin */}
         <Route path='/mm3000/login' element={<Login />} />
-        <Route path='/mm3000' element={<Dashboard />} />
-        <Route path='/mm3000/products' element={<ProductList />} />
-        <Route path='/mm3000/gallery' element={<Gallery />} />
+        <Route path='/mm3000' element={sessionStorage.getItem('token') ? <Dashboard /> : <Login />} />
+        <Route path='/mm3000/products' element={sessionStorage.getItem('token') ? <ProductList /> : <Login />} />
+        <Route path='/mm3000/gallery' element={sessionStorage.getItem('token') ? <Gallery /> : <Login />} />
 
 
         <Route path='*' element={<NotFound />} />

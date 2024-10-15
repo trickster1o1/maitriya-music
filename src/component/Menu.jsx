@@ -6,17 +6,19 @@ import { Link } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Menu() {
     const [menu,setMenu] = useState(false);
+    const act = useSelector((state)=>state.current.value);
     return (
         <>
         <div className="header-cont">
             <section className="header-top custom-cont">
                 <Link to={'/'} className="main-logo"><span>Maitriya</span> Music</Link>
                 <div className="header-contact">
-                    <span className="dis-mob"><span><FaPhoneAlt /></span>741-869-7572</span>
-                    <span className="dis-mob"><span><IoMailSharp /></span>info@maitriyamusic.com</span>
+                    <span className="dis-mob"><span><FaPhoneAlt /></span>9860240733</span>
+                    <span className="dis-mob"><span><IoMailSharp /></span>info@maitriyamusic.com.np</span>
                     <span className="dis-mob"><span><FaLocationDot/></span>Kalanki Chowk, Ktm</span>
                     <span className="mob-nav-b" onClick={()=>setMenu(!menu)}><RxHamburgerMenu /></span>
                 </div>
@@ -24,8 +26,8 @@ export default function Menu() {
         </div>
         <nav className="main-nav custom-cont">
                 <ul>
-                    <li><Link to={'/'} className="active">Home</Link></li>
-                    <li><Link to={'/shop'}>Shop</Link></li>
+                    <li><Link to={'/'} className={act === 'home' ? "active" : null}>Home</Link></li>
+                    <li><Link to={'/shop'} className={act === 'shop' ? "active" : null}>Shop</Link></li>
                     <li className="drop-cont"><a href="javascript:void(0)">Category<span><IoMdArrowDropdown/></span></a>
                         <div className="nav-drop">
                             <ul>
@@ -59,7 +61,8 @@ export default function Menu() {
                             </ul>
                         </div>
                     </li>
-                    <li><Link to={'/contact'}>Contact</Link></li>
+                    <li><Link to={'/gallery'} className={act === 'gallery' ? "active" : null}>Gallery</Link></li>
+                    <li><Link to={'/contact'} className={act === 'contact' ? "active" : null}>Contact</Link></li>
                     {/* <li>Home</li>
                     <li>Home</li> */}
                 </ul>
@@ -69,6 +72,7 @@ export default function Menu() {
                 <ul>
                     <li onClick={()=>setMenu(!menu)}><Link to={'/'}> Home</Link></li>
                     <li onClick={()=>setMenu(!menu)}><Link to={'/shop'}> Shop</Link></li>
+                    <li onClick={()=>setMenu(!menu)}><Link to={'/gallery'}> Gallery</Link></li>
                     <li onClick={()=>setMenu(!menu)}><Link to={'/contact'}>Contact</Link></li>
                 </ul>
             </div>

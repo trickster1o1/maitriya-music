@@ -7,6 +7,7 @@ import { CKEditor, CKEditorContext } from '@ckeditor/ckeditor5-react';
 import slugify from 'react-slugify';
 
 import 'ckeditor5/ckeditor5.css';
+import { useNavigate } from "react-router-dom";
 export default function ProductList() {
     const [products, setProducts] = useState([]);
     const [show,setShow] = useState(false);
@@ -18,6 +19,7 @@ export default function ProductList() {
         title: '', price: '', brand:'',category:'',featured:'',thumbnail:'',slug:''
     });
     const [desc,setDesc] = useState('');
+    const navigate = useNavigate();
     async function getProducts() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprods`)
         .then(res=>res.json())
@@ -28,16 +30,24 @@ export default function ProductList() {
         });
     }
     useEffect(() => {
+        if(!sessionStorage.getItem('token')) {
+            navigate('/mm3000/login');
+        }
         getProducts();
     }, []);
 
     let delProd = async (id) => {
         setShow(!show);
         setLoader(true);
-        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=delprod&id=${id}`)
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=delprod&id=${id}&token=${sessionStorage.getItem('token')}`)
         .then(res=>res.json()).then(res=>{
-            setProducts(res.products.reverse());
-            setLoader(false);
+            if(res.status === 'error') {
+                sessionStorage.clear();
+                window.location.reload();
+            } else {
+                setProducts(res.products.reverse());
+                setLoader(false);
+            }
         }).catch(e=>{
             console.log(e);
             setLoader(false);
@@ -52,19 +62,29 @@ export default function ProductList() {
             setPop(false);
             setLoader(true);
             if(type === 'u') {
-                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=updprod&title=${data.title}&slug=${data.slug}&description=${desc}&featured=${data.featured}&thumbnail=${data.thumbnail}&category=${data.category}&brand=${data.brand}&price=${data.price}`)
+                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=updprod&title=${data.title}&slug=${data.slug}&description=${desc}&featured=${data.featured}&thumbnail=${data.thumbnail}&category=${data.category}&brand=${data.brand}&price=${data.price}&token=${sessionStorage.getItem('token')}`)
                 .then(res=>res.json()).then(res=>{
-                    setProducts(res.products.reverse());
-                    setLoader(false);
+                    if(res.status === 'error') {
+                        sessionStorage.clear();
+                        window.location.reload();
+                    } else {
+                        setProducts(res.products.reverse());
+                        setLoader(false);
+                    }
                     setErr('');
                 }).catch(e=>{console.log(e);
                     setLoader(false);
                 });
             } else if (type === 'a') {
-                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addprod&category=${data.category}&brand=${data.brand}&name=${data.title}&slug=${slugify(data.title)}&desc=${desc}&price=${data.price}&thumb=${data.thumbnail}&featured=${data.featured}`)
+                await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addprod&category=${data.category}&brand=${data.brand}&name=${data.title}&slug=${slugify(data.title)}&desc=${desc}&price=${data.price}&thumb=${data.thumbnail}&featured=${data.featured}&token=${sessionStorage.getItem('token')}`)
                 .then(res=>res.json()).then(res=>{
-                    setProducts(res.products.reverse());
-                    setLoader(false);
+                    if(res.status === 'error') {
+                        sessionStorage.clear();
+                        window.location.reload();
+                    } else {
+                        setProducts(res.products.reverse());
+                        setLoader(false);
+                    }
                 }).catch(e=>{console.log(e);
                     setLoader(false);
                 });

@@ -3,27 +3,13 @@ import Categories from "../component/Categories";
 import AboutUs from "../component/About";
 import Shop from "../component/Shop";
 import Loader from "../component/Loader";
-// import slugify from 'react-slugify';
+import { useDispatch } from "react-redux";
+import { changeUrl } from "../feature/navPing";
 
 export default function Home() {
-    let [featured,setFeatured] = useState([]);
-
-    // let [loader,setLoader] = useState(0);
-    // async function testGet() {
-    //     setLoader(1);
-    //     console.log('Adding...');
-    //     await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=addprod&category=${data.category}&brand=${data.brand}&name=${data.name}&slug=${slugify(name)}&desc=${data.desc}&price=${data.price}&thumb=${data.thumb}&imgs=${data.imgs}`)
-    //     .then(res=>res.json())
-    //     .then(res=>{
-    //         console.log(res);
-    //         setData({});
-    //         setLoader(0);
-    //     }).catch(e=>{
-    //         console.log(e);
-    //         setLoader(0);
-    //     });
-    // }
-
+    const [featured,setFeatured] = useState([]);
+    const [gallery,setGallery] = useState([]);
+    const setUrl = useDispatch();
     async function getFeatured() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprods`)
         .then(res=>res.json())
@@ -36,7 +22,16 @@ export default function Home() {
             console.log(e);
         });
     }
+
+    let getGallery = async () => {
+        await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getgallery`)
+        .then(res=>res.json()).then(res=>{
+            setGallery(res.products.reverse());
+        }).catch(e=>console.log(e));
+    }
     useEffect(() => {
+        setUrl(changeUrl('home'));
+        getGallery();
         getFeatured();
     }, []);
 
@@ -46,7 +41,7 @@ export default function Home() {
         <div className="banner-cont">
         </div>
         <Categories />
-        <AboutUs />
+        <AboutUs gallery = {gallery} />
         <Shop featured = {featured} />
         {/* <input type="text" placeholder="brand" value={data.brand ? data.brand : ''} onChange={(e)=>setData({...data, brand: e.target.value})} /><br />
         <input type="text" placeholder="category" value={data.category ? data.category : ''} onChange={(e)=>setData({...data, category: e.target.value})} /><br />

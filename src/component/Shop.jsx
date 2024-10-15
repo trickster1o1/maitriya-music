@@ -8,8 +8,9 @@ export default function Shop({featured}) {
       <div className="shop-cont custom-cont">
         <h1 className="custom-header">Shop Now</h1>
         <p>
-          Aenean tempor auctor dui sed eleifend. Praesent maximus <br />
-          justo quis tellus placerat, eget molestie nisl dignissim.
+          {/* Aenean tempor auctor dui sed eleifend. Praesent maximus <br />
+          justo quis tellus placerat, eget molestie nisl dignissim. */}
+          Explore our wide range of top-quality instruments, gear, <br /> and accessories for musicians of all levels.
         </p>
         <div className="tab-btn-cont">
           <button className={`custom-btn ${filter === 'new' ? 'active' : null}`} onClick={()=>setFilter('new')}>New</button>
