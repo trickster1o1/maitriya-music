@@ -38,10 +38,10 @@ export default function Footer() {
               <Link to={"/"}>Home</Link>
             </li>
             <li>
-              <Link to={"/"}>About</Link>
+              <Link to={"/gallery"}>Gallery</Link>
             </li>
             <li>
-              <Link to={"/"}>Contact</Link>
+              <Link to={"/contact"}>Contact</Link>
             </li>
           </ul>
         </div>
@@ -49,7 +49,7 @@ export default function Footer() {
           <ul>
             <li className="li-head">Contact Info</li>
             <li>
-              <a href="tel: 9810223311"><span className="cont-icon"><FaPhoneAlt/></span> <span style={{'color':'#ff9300','fontSize':'25px'}}>9810223311</span></a>
+              <a href="tel: 9810223311"><span className="cont-icon"><FaPhoneAlt/></span> <span style={{'color':'#ff9300','fontSize':'25px'}}>9860240733</span></a>
             </li>
             <li>
             <a href="mailto: info@mail.com"><span className="cont-icon"><IoMailSharp/></span> <span>info@mail.com</span></a>

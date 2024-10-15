@@ -270,6 +270,9 @@
   color: white;
   border: none;
   padding: 15px 25px;
+  transition: all .35s ease-in-out;
+} .custom-btn:hover {
+  opacity: .8;
 }
 /* ==== Shop cont ==== */
 .main-shop-cont {
@@ -729,6 +732,33 @@
   top: 15px;
   color: white;
   font-size: 20px;
+}.img-preview > div {
+  background-color: #fff;
+  width: 27em;
+  min-height: 7em;
+  display: flex;
+  flex-direction: column;
+  transition: all .35s ease-in-out;
+}.img-preview > div > div {
+  padding: 1em;
+}.modal-body {
+  flex-grow: 1;
+} .modal-body ul{
+  padding: 0;
+  list-style: none;
+}.modal-body li a {
+  font-weight: 400;
+  color: rgba(0,0,0,.6);
+  padding: 1em;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  transition: all .35s ease-in-out;
+  display: block;
+  width: 100%;
+} .modal-body li a:hover {
+  background-color: rgba(0,0,0,.2);
+} .modal-head > span {
+  float: right;
+  color: black;
 }
 
 
@@ -736,4 +766,4 @@
 iframe {
   width: 100%;
   height: 30em;
-}
+} 

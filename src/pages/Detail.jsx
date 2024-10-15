@@ -3,11 +3,16 @@ import Banner from "../component/Banner";
 import { useEffect, useState } from "react";
 import Product from "../component/Product";
 import Loader from "../component/Loader";
+import { FaWhatsapp } from "react-icons/fa";
+import { AiOutlineMail } from "react-icons/ai";
+import { GiCancel } from "react-icons/gi";
 
 export default function Detail() {
     const param = useParams();
     const [prod,setProd] = useState([]);
     const [related,setRelated] = useState([]);
+    const [url,setUrl] = useState('');
+    const [showOpt,setShowOpt] = useState(false);
     async function getProd() {
         await fetch(`https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getprod&slug=${param.slug}`)
         .then(res=>res.json())
@@ -57,7 +62,7 @@ export default function Detail() {
                         <div className="line-break"></div>
                         <div className="p-price">
                             <span>Price:</span><span>Rs.{prod[7]}</span>    <br />
-                            <button className="custom-btn">
+                            <button className="custom-btn"  onClick={()=>{setUrl(window.location.origin+'/product/'+prod[2]);setShowOpt(true);}} role='button'>
                                 Inquire
                             </button>
                         </div>
@@ -81,6 +86,19 @@ export default function Detail() {
                 </>
                 : null
             }
+
+            
+            <div className="img-preview" style={showOpt ? {zIndex: '9999',opacity:1} : {zIndex: '-1',opacity:'0'}}>
+                    <div style={showOpt ? {transform: 'scale(1)'} : {transform: 'scale(0)'}}>
+                        <div className="modal-head">How would you like to contact us?<span role="button" onClick={()=>setShowOpt(false)}><GiCancel /></span></div>
+                        <div className="modal-body">
+                            <ul>
+                            <li><a href={"https://api.whatsapp.com/send?phone=9860240733&text="+url} target="_blank" rel="noopener noreferrer" onClick={()=>setShowOpt(false)}><FaWhatsapp /> WhatsApp</a></li>
+                            <li><a href={"mailto: rickykhadgi10@gmail.com?body="+url} target="_blank" rel="noopener noreferrer" onClick={()=>setShowOpt(false)}><AiOutlineMail /> Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
         </>
     );
 }
