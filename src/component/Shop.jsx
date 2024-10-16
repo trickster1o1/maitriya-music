@@ -51,7 +51,7 @@ export default function Shop({featured}) {
         </div>
       </div>
 
-      <div className="prod-cont">
+      <div className="prod-cont mini-p">
         {featured.length ?
         (
           filter === 'new' ?

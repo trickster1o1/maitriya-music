@@ -34,7 +34,7 @@
         padding-right: 10em;
     } .prod-cont {
         grid-template-columns: 1fr 1fr 1fr;
-    } .prod-cont > div:nth-child(4) {
+    } .mini-p > div:nth-child(4) {
         display: none;
     }
 }
@@ -105,7 +105,7 @@
         grid-template-columns: 1fr 1fr;
     }.products-cont > .prod-cont {
         grid-template-columns: 1fr 1fr;
-      } .prod-cont > div:nth-child(3) {
+      } .mini-p > div:nth-child(3) {
         display: none;
     }.footer-bottom {
         flex-direction: column;

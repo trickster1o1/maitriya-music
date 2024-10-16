@@ -88,7 +88,7 @@ export default function Detail() {
                 <>
                 <h1 className="custom-header" 
                 style={{'backgroundColor':'white','marginTop':'0','paddingTop':'2em'}}>Related Products</h1>
-                <div className="prod-cont related-cont">
+                <div className="prod-cont related-cont mini-p">
                     {
                         related.map(p=> 
                             <Product title ={p[1]} price={p[7]} img={p[9]} link={'/product/'+p[2]} />
