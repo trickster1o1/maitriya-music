@@ -18,6 +18,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <BrowserRouter>
+      <div id='top'></div>
       {window.location.href.includes('mm3000') ? <AdminMenu /> : <Menu />}
       <Routes>
         <Route path='/' element={<Home />} />

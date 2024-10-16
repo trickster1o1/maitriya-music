@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 export default function Contact() {
   const setUrl = useDispatch();
   useEffect(() => {
+    let m = document.getElementById('top');
+    m.scrollIntoView({ behavior: "smooth" }, true);
     setUrl(changeUrl("contact"));
   }, []);
   return (

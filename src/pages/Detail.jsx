@@ -33,6 +33,8 @@ export default function Detail() {
         });
     }
     useEffect(()=> {
+        let m = document.getElementById('top');
+        m.scrollIntoView({ behavior: "smooth" }, true);
         getProd();
     }, [param]); 
     return (

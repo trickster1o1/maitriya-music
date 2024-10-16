@@ -43,6 +43,8 @@ export default function ShopProd() {
         }
     }
     useEffect(()=> {
+        let m = document.getElementById('top');
+        m.scrollIntoView({ behavior: "smooth" }, true);
         setUrl(changeUrl('shop'));
         getProducts();
     }, [param.brand]);

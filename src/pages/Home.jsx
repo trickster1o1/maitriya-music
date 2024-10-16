@@ -61,6 +61,8 @@ export default function Home() {
     }, []);
 
     useEffect(() => {
+        let m = document.getElementById('top');
+        m.scrollIntoView({ behavior: "smooth" }, true);
         setUrl(changeUrl('home'));
         getGallery();
         getFeatured();

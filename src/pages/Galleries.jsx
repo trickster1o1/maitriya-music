@@ -20,6 +20,8 @@ export default function Galleries() {
         }).catch(e=>console.log(e));
     }
     useEffect(() => {
+        let m = document.getElementById('top');
+        m.scrollIntoView({ behavior: "smooth" }, true);
         setUrl(changeUrl('gallery'));
         getGallery();
     }, []);
