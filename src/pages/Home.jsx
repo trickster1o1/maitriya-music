@@ -31,24 +31,23 @@ export default function Home() {
         }).catch(e=>console.log(e));
     }
 
-    useEffect(() => {
-        let ctx = gsap.context(() => {
-          let tm = gsap.timeline();
+    useEffect(() => {    
+        let tm = gsap.timeline();
     
-          tm.from(".s-left", {
-            width: '0.9em',
+          tm.to(".s-left", {
+            width: '4em',
             duration: 1,
             ease: "power2.inOut",
           });
 
-          tm.from(".s-right", {
-            width: '0.9em',
+          tm.to(".s-right", {
+            width: '3em',
             duration: 1,
             ease: "power2.inOut",
           });
 
-          tm.from(".sound", {
-            opacity: '0',
+          tm.to(".sound", {
+            opacity: '1',
             duration: .8,
             ease: "power2.inOut",
           });
@@ -59,11 +58,6 @@ export default function Home() {
             duration: .8,
             ease: "power2.inOut",
           });
-
-
-        });
-    
-        return () => ctx.revert();
     }, []);
 
     useEffect(() => {

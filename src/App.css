@@ -773,11 +773,9 @@ iframe {
   display:flex;
 } .s-left, .s-right {
   display: block;
-  width: 4em;
+  width: 0.9em;
   overflow: hidden;
-}.s-right {
-  width: 3em;
 }.sound {
   width: 15em;
-  opacity: 1;
+  opacity: 0;
 }
