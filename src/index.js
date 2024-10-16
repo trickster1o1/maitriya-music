@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import urlPing from "./feature/navPing";
+import { HelmetProvider } from "react-helmet-async";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = configureStore({
@@ -15,9 +16,11 @@ const store = configureStore({
 });
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );
 

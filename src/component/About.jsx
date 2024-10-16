@@ -1,11 +1,35 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 
 export default function AboutUs({ gallery }) {
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      let tm = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-cont",
+          start: "top 45%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      tm.from(".about-ani", {
+        y: 25,
+        duration: 0.8,
+        opacity: 0,
+        ease: "power2.inOut",
+        stagger: 0.2,
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
   return (
     <div className="about-cont">
       <div className="about-desc custom-cont">
-        <h1 className="custom-header">About Us</h1>
-        <p>
+        <h1 className="custom-header about-ani">About Us</h1>
+        <p className="about-ani">
           Welcome to Maitreya Music, your one-stop shop for all things music!
           Whether you're a beginner looking to find your first instrument or a
           seasoned musician searching for the perfect gear, we've got you
@@ -22,7 +46,7 @@ export default function AboutUs({ gallery }) {
           <>
             {gallery.slice(0, 3).map((e, key) => (
               <div key={key}>
-                <img src={e[1]} alt={"Img-" + key} />
+                <img src={e[1]} alt={"Img-" + key} className="about-ani" />
               </div>
             ))}
             <div className="more-img">

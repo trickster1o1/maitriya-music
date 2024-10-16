@@ -3,6 +3,7 @@ import Loader from "../component/Loader";
 import { GiCancel } from "react-icons/gi";
 import { useDispatch } from "react-redux";
 import { changeUrl } from "../feature/navPing";
+import { Helmet } from "react-helmet-async";
 
 export default function Galleries() {
     const [gallery,setGallery] = useState([]);
@@ -24,6 +25,16 @@ export default function Galleries() {
     }, []);
     return (
         <>
+        <Helmet prioritizeSeoTags>
+            <title>Gallery | Maitreya Music</title>
+            <link rel="canonical" href="/gallery" />
+            <meta
+            property="og:title"
+            content="Gallery | Maitreya Music"
+            />
+            <meta property="og:image" content="https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg"/>
+            <meta name="twitter:image" content="https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg"/>
+        </Helmet>
         <div className="custom-cont gal-cont">
         <Loader />
 

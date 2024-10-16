@@ -6,6 +6,7 @@ import Loader from "../component/Loader";
 import { FaWhatsapp } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { GiCancel } from "react-icons/gi";
+import { Helmet } from "react-helmet-async";
 
 export default function Detail() {
     const param = useParams();
@@ -36,6 +37,17 @@ export default function Detail() {
     }, [param]); 
     return (
         <>
+            <Helmet prioritizeSeoTags>
+                <title data-rh="true" >{prod && prod.length ? prod[1]+' | Maitreya Music' : 'Maitreya Music'}</title>
+                <link rel="canonical" href={window.location.href} data-rh="true" />
+                <meta
+                    property="og:title"
+                    content={prod && prod.length ? prod[1]+' | Maitreya Music' : 'Maitreya Music'}
+                    data-rh="true"
+                />
+                <meta property="og:image" content={prod && prod.length ? prod[9] : "https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg" } data-rh="true" />
+                <meta name="twitter:image" content={prod && prod.length ? prod[9] : "https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg" } data-rh="true" />
+            </Helmet>
             <Loader />
             <Banner title={prod.length ? prod[1] : ''} sub={'shop'} />
             <div className="detail-cont custom-cont">

@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import Categories from "../component/Categories";
 import AboutUs from "../component/About";
 import Shop from "../component/Shop";
-import Loader from "../component/Loader";
 import { useDispatch } from "react-redux";
 import { changeUrl } from "../feature/navPing";
+import { Helmet } from "react-helmet-async";
+import { gsap } from "gsap";
 
 export default function Home() {
     const [featured,setFeatured] = useState([]);
@@ -16,8 +17,8 @@ export default function Home() {
         .then(res=>{
             setFeatured(res.product.reverse());
             let ld = document.getElementById('l-c');
-            ld.style.opacity = 0;
-            ld.style.zIndex = -1;
+            // ld.style.opacity = 0;
+            // ld.style.zIndex = -1;
         }).catch(e=>{
             console.log(e);
         });
@@ -29,15 +30,65 @@ export default function Home() {
             setGallery(res.products.reverse());
         }).catch(e=>console.log(e));
     }
+
+    useEffect(() => {
+        let ctx = gsap.context(() => {
+          let tm = gsap.timeline();
+    
+          tm.from(".s-left", {
+            width: '0.9em',
+            duration: 1,
+            ease: "power2.inOut",
+          });
+
+          tm.from(".s-right", {
+            width: '0.9em',
+            duration: 1,
+            ease: "power2.inOut",
+          });
+
+          tm.from(".sound", {
+            opacity: '0',
+            duration: .8,
+            ease: "power2.inOut",
+          });
+
+          tm.to("#l-c", {
+            zIndex: '-1',
+            opacity: '0',
+            duration: .8,
+            ease: "power2.inOut",
+          });
+
+
+        });
+    
+        return () => ctx.revert();
+    }, []);
+
     useEffect(() => {
         setUrl(changeUrl('home'));
         getGallery();
         getFeatured();
     }, []);
+    
 
     return (
         <>
-        <Loader />
+        <Helmet prioritizeSeoTags>
+            <title>Maitreya Music</title>
+            <link rel="canonical" href="/" />
+            <meta
+            property="og:title"
+            content="Maitreya Music"
+            />
+            <meta property="og:image" content="https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg"/>
+            <meta name="twitter:image" content="https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg"/>
+        </Helmet>        
+        <div className="load-cont" style={{flexDirection:'column'}} id="l-c">
+            <div to={'/'} className="main-logo splash"><span className="s-left">Maitriya</span> <section className="s-right">Music</section></div>
+            <img src="/sound.gif" alt="Loading..." className="sound" />
+        </div>
         <div className="banner-cont">
         </div>
         <Categories />

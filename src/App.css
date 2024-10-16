@@ -767,3 +767,17 @@ iframe {
   width: 100%;
   height: 30em;
 } 
+
+/* === Splash Screen === */
+.splash {
+  display:flex;
+} .s-left, .s-right {
+  display: block;
+  width: 4em;
+  overflow: hidden;
+}.s-right {
+  width: 3em;
+}.sound {
+  width: 15em;
+  opacity: 1;
+}

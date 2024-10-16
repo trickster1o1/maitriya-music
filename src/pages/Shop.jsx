@@ -6,6 +6,7 @@ import Loader from "../component/Loader";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeUrl } from "../feature/navPing";
+import { Helmet } from "react-helmet-async";
 
 export default function ShopProd() {
     const param = useParams();
@@ -47,6 +48,17 @@ export default function ShopProd() {
     }, [param.brand]);
     return (
         <>
+        
+            <Helmet prioritizeSeoTags>
+                <title>Shop | Maitreya Music</title>
+                <link rel="canonical" href="/shop" />
+                <meta
+                property="og:title"
+                content="Shop | Maitreya Music"
+                />
+                <meta property="og:image" content="https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg"/>
+                <meta name="twitter:image" content="https://maitreya-music.vercel.app/static/media/guitar_cover.21115ab57ead2354a246.jpg"/>
+            </Helmet>
             <Loader />
             <Banner  title={'shop'}  />
             <div className="custom-cont products-cont">
