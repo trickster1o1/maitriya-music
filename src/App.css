@@ -42,6 +42,7 @@
   font-size: 26px;
   margin-top: 1em;
   font-weight: 500;
+  text-shadow: 5px 5px 15px rgba(0,0,0,.5);
 }a {
   text-decoration: none;
   color: black;
@@ -194,6 +195,8 @@
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: cover !important;
+  /* transition: all .35s ease-in-out; */
+  box-shadow: 10px 10px 15px rgba(0,0,0,.35);
 }.overlay {
   position: absolute;
   top: 0;
