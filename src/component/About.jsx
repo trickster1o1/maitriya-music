@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 
 export default function AboutUs({ gallery }) {
@@ -39,14 +38,11 @@ export default function AboutUs({ gallery }) {
         </p>
       </div>
       <div className="about-gallery">
-        {/* <div><img src='/gall/a.jpg' alt="Img A" /></div>
-          <div><img src='/gall/b.jpg' alt="Img A" /></div>
-          <div><img src='/gall/c.jpg' alt="Img A" /></div> */}
         {gallery && gallery.length ? (
           <>
             {gallery.slice(0, 3).map((e, key) => (
-              <div key={key}>
-                <img src={e[1]} alt={"Img-" + key} className="about-ani" />
+              <div key={key} className="g-ani-img">
+                <img src={e[1]} alt={"Img-" + key} />
               </div>
             ))}
             <div className="more-img">
