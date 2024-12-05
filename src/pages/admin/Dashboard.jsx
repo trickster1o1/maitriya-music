@@ -27,7 +27,7 @@ export default function Dashboard() {
   }
   async function getStats() {
     await fetch(
-      `https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getstats&token=Yc1m0FD7vh31ywrfAMI6qw1LcvGSlCoPAztGvfgw2GkYKYr5A1mkubKdb2ECv4yC`
+      `https://script.google.com/macros/s/AKfycbyU1SDsHiyyTSlzKDJnLsHy0tfa99tYX7tcsPk4rS2K7kXo_8aCMzTyjg-RE9RPh1l4OQ/exec?type=getstats&token=${sessionStorage.getItem('token')}`
     )
       .then((res) => res.json())
       .then((res) => {
